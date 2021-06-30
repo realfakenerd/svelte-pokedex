@@ -19,16 +19,16 @@
 	<link rel="icon" href={pokeman.sprites['front_default']} />
 </svelte:head>
 <h1 class="text-4xl text-center my-8 uppercase">{pokeman.name}</h1>
-<div class="grid grid-rows-1 grid-cols-2">
-	<ul>
+<div class="grid md:grid-rows-1 md:grid-cols-2 place-content-center">
+	<div class="container h-full w-full relative">
+		<img src={imgSrc} alt={pokeman.name} />
+		<img class="absolute z-0 inset-0 filter blur-lg saturate-200" src={imgSrc} alt={pokeman.name} />
+	</div>
+	<ul class="grid grid-rows-3 grid-cols-1 place-items-center">
 		<li>Type: <strong>{type}</strong></li>
 		<li>Height: <strong>{pokeman.height}</strong></li>
 		<li>Weight: <strong>{pokeman.weight}</strong></li>
 	</ul>
-	<div class="container object-center h-full w-full relative mx-auto">
-		<img class="" src={imgSrc} alt={pokeman.name} />
-		<img class="absolute z-0 inset-0 filter blur-lg saturate-200" src={imgSrc} alt={pokeman.name} />
-	</div>
 </div>
 
 <style>
