@@ -1,6 +1,6 @@
 <script context="module">
 	export async function load({ page }) {
-		const url = `https://pokeapi.co/api/v2/pokemon?limit=300`;
+		const url = `https://pokeapi.co/api/v2/pokemon?limit=100`;
 		const res = await fetch(url);
 		const data = await res.json();
 		const loadedPokemon = data.results.map((data, index) => {
@@ -34,18 +34,19 @@
 
 <svelte:head>
 	<title>Pokedex</title>
+	<link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/240px-Pok%C3%A9_Ball_icon.svg.png">
 </svelte:head>
 
 <h1 class="text-4xl text-center my-8 uppercase">Wellcome to the amazing Pokedex</h1>
 
 <input
-	class="w-full focus:border-4 rounded-md text-lg p-5 border-2 border-gray-200"
+	class="w-full rounded-md text-lg p-5 border-2 border-gray-200"
 	type="text"
 	placeholder="Search Pokemon"
 	bind:value={searchTerm}
 />
 
-<div class="py-4 grid gap-4 md:grid-cols-2 grid-cols-1">
+<div class="py-4 grid gap-4 md:grid-cols-4 grid-cols-1">
 	{#each filteredPokemon as pokeman}
 		<PokemanCard {pokeman} />
 	{/each}
