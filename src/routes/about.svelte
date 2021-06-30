@@ -1,6 +1,4 @@
 <svelte:head>
     <title>About page</title>
 </svelte:head>
-<h1>
-    About page
-</h1>
+<h1  class="text-4xl text-center my-8 uppercase">About page</h1>
