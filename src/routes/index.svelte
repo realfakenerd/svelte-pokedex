@@ -1,2 +1,25 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import { pokemon } from '../stores/pokestore';
+	console.log($pokemon);
+</script>
+
+<svelte:head>
+	<title>Pokedex</title>
+</svelte:head>
+
+<h1>Wellcome to the Pokedex</h1>
+
+<div class="grid">
+    {#each $pokemon as pokeman}
+        <h3>{pokeman.name}</h3>
+    {/each}
+</div>
+
+<style>
+    .grid {
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        place-items: center;
+        color: red
+    }
+</style>
